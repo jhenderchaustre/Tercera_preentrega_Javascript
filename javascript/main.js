@@ -1,5 +1,9 @@
 const articulosStore = document.getElementById("articulos");
 
+const verCarrito = document.getElementById("carrito");
+
+const modalContainer =document.getElementById("modalContainer");
+
 const productos = [
     {
         id: 1,
@@ -55,4 +59,42 @@ productos.forEach((product) => {
         });
         console.log(carrito);
     });
+});
+
+verCarrito.addEventListener("click", () => {
+    modalContainer.innerHTML = "";
+    modalContainer.style.display = "flex";
+    console.log("funciona")
+    const modalHeader = document.createElement("div");
+    modalHeader.className = "modalH"
+    modalHeader.innerHTML = `
+    <h2 class="modalTitulo">Carrito</h2>
+    `;
+    modalContainer.append(modalHeader);
+    const modalButton = document.createElement("h3");
+    modalButton.innerText = "x";
+    modalButton.className = "modalHbutton";
+    modalButton.addEventListener("click", () => {
+        modalContainer.style.display = "none";
+    });
+
+    modalHeader.append(modalButton);
+
+    carrito.forEach((product) => {
+       let carritoContent = document.createElement("div");
+    carritoContent.className = "modalContent"
+    carritoContent.innerHTML = `
+    <img src=${product.img}>
+    <h3>${product.nombre}</h3>
+    <p>${product.precio} $</p>
+    `;
+    modalContainer.append(carritoContent)
+    });
+    
+    const total = carrito.reduce((acc, el) => acc + parseFloat(el.precio), 0);
+
+    const totalApagar = document.createElement("div");
+    totalApagar.className = "totalContent"
+    totalApagar.innerHTML = `Total a pagar: ${total} $`
+    modalContainer.append(totalApagar)
 });
