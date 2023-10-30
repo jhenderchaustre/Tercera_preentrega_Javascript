@@ -124,6 +124,5 @@ document.addEventListener("DOMContentLoaded", () => {
     if (storedCarrito) {
         carrito = JSON.parse(storedCarrito);
     }
-
     displayProductos(productos);
 });
