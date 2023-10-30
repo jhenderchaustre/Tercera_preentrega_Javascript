@@ -1,4 +1,5 @@
-const articulosStore = document.getElementById ("articulos");
+const articulosStore = document.getElementById("articulos");
+
 const productos = [
     {
         id: 1,
@@ -28,7 +29,7 @@ const productos = [
 
 let carrito = [];
 
-productos.forEach((product)=> {
+productos.forEach((product) => {
     let content = document.createElement("div");
     content.className = "card";
     content.innerHTML = `
@@ -38,10 +39,20 @@ productos.forEach((product)=> {
     `;
 
     articulosStore.append(content);
-    
+
     let comprar = document.createElement("button");
     comprar.innerText = "Comprar";
-    comprar.className = ""
+    comprar.className = "comprar";
+
     content.append(comprar);
 
-}); 
+    comprar.addEventListener("click", () => {
+        carrito.push({
+            id: product.id,
+            img: product.img,
+            nombre: product.nombre,
+            precio: product.pprecio
+        });
+        console.log(carrito);
+    });
+});
