@@ -51,7 +51,7 @@ productos.forEach((product) => {
             id: product.id,
             img: product.img,
             nombre: product.nombre,
-            precio: product.pprecio
+            precio: product.precio
         });
         console.log(carrito);
     });
