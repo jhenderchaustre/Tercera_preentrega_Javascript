@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             id: 1,
             nombre: "Remeras",
-            precio: "5000",
+            precio: 5000,
             img: "https://wildroadweb.com/wp-content/uploads/2020/11/DSCN1361-scaled.jpg"
         },
         {
